@@ -1,5 +1,3 @@
-#pragma tabsize 0
-
 #include <sourcemod>
 
 #include <clientprefs>
@@ -7,12 +5,12 @@
 #include <sdkhooks>
 
 #include <vip_core>
-#include <csgo_colors>
+#include <multicolors>
 
 #pragma newdecls required
 #pragma semicolon 1
 
-#define VIP_MVP				"MVP"
+#define VIP_MVP			"MVP"
 #define VIP_MVP_MENU		"MVP_Menu"
 
 char g_sChatPrefix[128];
@@ -41,7 +39,6 @@ public void OnPluginStart()
 
     HookEvent("round_mvp", Event_RoundMVP);
 
-	LoadTranslations("vip.kento.mvp.phrases");
     LoadTranslations("vip_modules.phrases");
 }
 
@@ -86,6 +83,9 @@ public void MVPSounds_Reset()
 
 public bool MVPSounds_Config(KeyValues &kv, int itemid)
 {
+
+	float g_fVolume[256];
+
 	ItemDisplayCallback(itemid, g_iCount);
 
 	kv.GetString("sound", g_sSound[g_iCount], PLATFORM_MAX_PATH);
@@ -112,7 +112,7 @@ public bool MVPSounds_Config(KeyValues &kv, int itemid)
 
 public int MVPSounds_Equip(int client, int itemid)
 {
-	g_iEquipt[client]
+	g_iEquipt[client] = itemid;
 
 	return 0;
 }
@@ -155,6 +155,15 @@ public void Event_RoundMVP(Event event, char[] name, bool dontBroadcast)
 		EmitSoundToClient(i, g_sSound[g_iEquipt[client]], client, SNDCHAN_AUTO, SNDLEVEL_NORMAL, SND_NOFLAGS, g_fVolume[g_iEquipt[client]]);
 	}
 
+}
+public void VIP_OnPreviewItem(int client, char[] type, int index)
+{
+	if (!StrEqual(type, "mvp_sound"))
+		return;
+
+	EmitSoundToClient(client, g_sSound[index], client, SNDCHAN_AUTO, SNDLEVEL_NORMAL, SND_NOFLAGS, g_fVolume[index] / 2);
+
+	CPrintToChat(client, "%s%t", g_sChatPrefix, "Play Preview", client);
 }
 
 
