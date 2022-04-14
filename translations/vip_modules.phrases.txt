@@ -1,0 +1,8 @@
+Phrases
+{
+	"mvp_sound"
+	{
+		"en"		"MVP anthems"
+		"vn"		"Chọn MVP"
+	}	
+}
