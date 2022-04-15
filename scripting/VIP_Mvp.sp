@@ -30,6 +30,8 @@ public Plugin myinfo =
 
 static const char g_sFeature[] = "MVP";
 
+int g_iEquipt[MAXPLAYERS + 1] = {-1, ...};
+
 public void OnPluginStart()
 {
     VIP_FeatureType("mvp_sound","sound", MVPSounds_OnMapStart, MVPSounds_Reset, MVPSounds_Config, MVPSounds_Equip, MVPSounds_Remove, true);
@@ -49,7 +51,8 @@ public void OnPluginEnd()
 
 public int VIP_OnVIPLoaded()
 {
-	VIP_RegisterFeature("VIP_MVP", BOOL, SELECTABLE);
+	VIP_RegisterFeature("VIP_MVP", BOOL, SELECTABLE, OnToggleItem);
+	VIP_RegisterFeature("VIP_MVP_MENU", SELECTABLE, OnSelectItem, OnDrawItem);
 }
 
 public Action Command_MVP(int client, any args)
@@ -64,6 +67,11 @@ public Action Command_MVP(int client, any args)
 public void MVPSounds_OnMapStart()
 {
 	char sBuffer[256];
+
+	g_hKeyValues = CreateKeyValues("MVP");
+	
+	decl String:sBuffer[PLATFORM_MAX_PATH];
+	BuildPath(Path_SM, sBuffer, sizeof(sBuffer), "data/vip/modules/mvp.ini");
 
 	for (int i = 0; i < g_iCount; i++)
 	{
