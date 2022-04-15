@@ -17,6 +17,7 @@ char g_sChatPrefix[128];
 
 int g_iCount = 0;
 int g_sSound;
+int g_iEquipt[MAXPLAYERS + 1] = {-1, ...};
 
 public Plugin myinfo =
 {
@@ -28,10 +29,6 @@ public Plugin myinfo =
 };
 
 static const char g_sFeature[] = "MVP";
-
-int g_iEquipt[MAXPLAYERS + 1] = {-1, ...};
-Handle g_hCookie;
-Menu g_hmenu;
 
 public void OnPluginStart()
 {
