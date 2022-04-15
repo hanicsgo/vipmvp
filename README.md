@@ -1,6 +1,5 @@
 # Current development
 - CSGO: emote
-- CSS: done (if you want more module contact me)
 
 # Newly added
 - Update (15/4/2022), Beta
