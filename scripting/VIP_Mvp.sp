@@ -30,8 +30,6 @@ public Plugin myinfo =
 
 static const char g_sFeature[] = "MVP";
 
-int g_iEquipt[MAXPLAYERS + 1] = {-1, ...};
-
 public void OnPluginStart()
 {
     VIP_FeatureType("mvp_sound","sound", MVPSounds_OnMapStart, MVPSounds_Reset, MVPSounds_Config, MVPSounds_Equip, MVPSounds_Remove, true);
