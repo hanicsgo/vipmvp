@@ -37,6 +37,11 @@ public void OnPluginStart()
     HookEvent("round_mvp", Event_RoundMVP);
 
     LoadTranslations("vip_modules.phrases");
+
+	g_hKeyValues = CreateKeyValues("MVP");
+	
+	decl String:sBuffer[PLATFORM_MAX_PATH];
+	BuildPath(Path_SM, sBuffer, sizeof(sBuffer), "data/vip/modules/mvp.ini");
 }
 
 public void OnPluginEnd() 
@@ -65,11 +70,6 @@ public Action Command_MVP(int client, any args)
 public void MVPSounds_OnMapStart()
 {
 	char sBuffer[256];
-
-	g_hKeyValues = CreateKeyValues("MVP");
-	
-	decl String:sBuffer[PLATFORM_MAX_PATH];
-	BuildPath(Path_SM, sBuffer, sizeof(sBuffer), "data/vip/modules/mvp.ini");
 
 	for (int i = 0; i < g_iCount; i++)
 	{
