@@ -19,6 +19,3 @@ https://steamcommunity.com/id/haniicsgo
 
 # Special Thank
 Original store by Zephyrus, Preview system by Kxnrl, Some code from Shanapu's MyStore (gamble)
-
-# Credits/Spezial Thanks:
-sourcemod team, Zephyrus (dvarnai), Hexer10, bara, Kxnrl, Totenfluch, dordnung, Franc1sco, Drixevel, CZE|EMINEM, Kuristaja, maoling, In*Victus, rogeraabbccdd, Mitchell, gubka, FrozDark, SWAT_88, Bacardi, PeEzZ, Rachnus
