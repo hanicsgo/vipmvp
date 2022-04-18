@@ -18,4 +18,4 @@ Contact me via steam for bug report:
 https://steamcommunity.com/id/haniicsgo
 
 # Special Thank
-Original store by Zephyrus, Preview system by Kxnrl, Some code from Shanapu's MyStore (gamble)
+Preview system by Kxnrl, Some code from Shanapu's MyStore (gamble)
