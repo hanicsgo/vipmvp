@@ -159,15 +159,5 @@ public void Event_RoundMVP(Event event, char[] name, bool dontBroadcast)
 	}
 
 }
-public void VIP_OnPreviewItem(int client, char[] type, int index)
-{
-	if (!StrEqual(type, "mvp_sound"))
-		return;
-
-	EmitSoundToClient(client, g_sSound[index], client, SNDCHAN_AUTO, SNDLEVEL_NORMAL, SND_NOFLAGS, g_fVolume[index] / 2);
-
-	CPrintToChat(client, "%s%t", g_sChatPrefix, "Play Preview", client);
-}
-
 
 
