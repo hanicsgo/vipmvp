@@ -126,12 +126,6 @@ public int MVPSounds_Remove(int client, int itemid)
 	return 0;
 }
 
-public void OnClientDisconnect(int client)
-{
-	g_iEquipt[client] = -1;
-}
-
-
 public void Event_RoundMVP(Event event, char[] name, bool dontBroadcast)
 {
 	if (!gc_bEnable.BoolValue)
